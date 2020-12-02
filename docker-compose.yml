@@ -1,0 +1,15 @@
+version: '3'
+services:
+  rabbitmq:
+    image: rabbitmq:3.8.9-management-alpine
+    volumes:
+        - ./rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins
+    environment:
+        - RABBITMQ_ERLANG_COOKIE=${RABBITMQ_ERLANG_COOKIE}
+        - RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER}
+        - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS}
+        - RABBITMQ_DEFAULT_VHOST=${RABBITMQ_DEFAULT_VHOST}      
+    ports:
+       - "5672:5672"
+       - "15672:15672"
+       - "15692:15692"
